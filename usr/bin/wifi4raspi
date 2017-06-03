@@ -1,0 +1,25 @@
+#!/bin/bash
+echo '*wifi4raspi is running...' > /home/alarm/.wifi4raspi
+sleep 20
+echo '*wifi4raspi slept for 20 seconds.' >> /home/alarm/.wifi4raspi
+echo '*Setting wlan0 to UP...' >> /home/alarm/.wifi4raspi
+ip link set wlan0 up >> /home/alarm/.wifi4raspi
+ip link set dev wlan0 up >> /home/alarm/.wifi4raspi
+echo '*Running  wpa_supplicant...' >> /home/alarm/.wifi4raspi
+wpa_supplicant -B -i wlan0 -D wext -c <(wpa_passphrase MYSSID MYPASSPHRASE) >> /home/alarm/.wifi4raspi
+dhcpcd wlan0 >> /home/alarm/.wifi4raspi
+iw dev wlan0 link >> /home/alarm/.wifi4raspi
+echo '*Pinging Google...' >> /home/alarm/.wifi4raspi
+ping -c 3 8.8.8.8 >> /home/alarm/.wifi4raspi
+ping -c 3 google.com >> /home/alarm/.wifi4raspi
+echo '*Ping loop started.' >> /home/alarm/.wifi4raspi
+ping localhost
+# echo '*Running pacman...' >> /home/alarm/.wifi4raspi
+# pacman -Syyuq --noconfirm >> /home/alarm/.wifi4raspi
+# pacman -S openssh --noconfirm >> /home/alarm/.wifi4raspi
+# pacman -Sccq --noconfirm >> /home/alarm/.wifi4raspi
+# pacman -Qdtq --noconfirm | pacman -Rs - --noconfirm >> /home/alarm/.wifi4raspi
+# pacman -Qmq --noconfirm | pacman -Rs - --noconfirm >> /home/alarm/.wifi4raspi
+# echo '*Enabling...' >> /home/alarm/.wifi4raspi
+# systemctl enable sshd.service >> /home/alarm/.wifi4raspi
+echo '*wifi4raspi finished.' >> /home/alarm/.wifi4raspi
