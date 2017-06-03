@@ -1,0 +1,2 @@
+# wifi4raspi
+These files will allow you to SSH into Arch Linux (or any other systemd-based Linux distro) on your Raspberry Pi WITHOUT ethernet cables, keyboards, or HDMI displays! All you need is your Raspberry Pi, a micro-USB power cord, an SD card, and whatever you're using to read this. Configure the files to your liking, drag and drop the entire repository into your root directory, and you're good to go.
