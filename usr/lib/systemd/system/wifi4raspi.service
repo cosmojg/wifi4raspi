@@ -1,0 +1,8 @@
+[Unit]
+Description=wifi4raspi
+
+[Service]
+ExecStart=/usr/bin/wifi4raspi
+
+[Install]
+WantedBy=multi-user.target
